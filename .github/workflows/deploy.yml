@@ -14,8 +14,8 @@ jobs:
         uses: actions/checkout@v4
 
       # Cache Mambaforge environment to speed up builds
-      # Uses a stable cache key based on environment.yml hash
-      - name: Cache mambaforge
+      # Cache key changes only if environment.yml changes
+      - name: Cache mambaforge environment
         uses: actions/cache@v3
         with:
           path: ~/mambaforge/envs
@@ -23,22 +23,37 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-mambaforge-
 
+      # Cache conda package tarballs to avoid redownloads
+      - name: Cache mambaforge packages
+        uses: actions/cache@v3
+        with:
+          path: ~/mambaforge/pkgs
+          key: ${{ runner.os }}-mambaforge-pkgs-${{ hashFiles('environment.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-mambaforge-pkgs-
+
+      # Install Mambaforge (fast conda-forge based solver)
       - name: Install Mambaforge
         run: |
           wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh -O mambaforge.sh
           bash mambaforge.sh -b -p ~/mambaforge
           echo "$HOME/mambaforge/bin" >> $GITHUB_PATH
 
-      - name: Create and activate environment
+      # Create environment with mamba (Python pinned to 3.12 for stability)
+      - name: Create ML_book environment
         run: |
-          mamba env update -n base -f environment.yml
-          mamba install -n base ipykernel -y
+          mamba env create -n ML_book -f environment.yml --yes || mamba env update -n ML_book -f environment.yml --yes
+          mamba install -n ML_book ipykernel --yes
+          source ~/mambaforge/bin/activate ML_book
           python -m ipykernel install --name ML_book --display-name "Python (ML_book)" --user
 
+      # Build the book
       - name: Build the book
         run: |
+          source ~/mambaforge/bin/activate ML_book
           jupyter-book build ML_book_site
 
+      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
