@@ -3,7 +3,7 @@ name: deploy-book
 on:
   push:
     branches:
-      - main  # or 'master' if that's your default
+      - main
 
 jobs:
   build-deploy:
@@ -13,17 +13,20 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: "3.12"
+          activate-environment: ML_book
+          environment-file: environment.yml
+          auto-activate-base: false
 
-      - name: Install dependencies
+      - name: Add ML_book kernel
+        shell: bash -l {0}
         run: |
-          pip install -U pip
-          pip install jupyter-book
+          python -m ipykernel install --name ML_book --display-name "Python (ML_book)"
 
       - name: Build the book
+        shell: bash -l {0}
         run: |
           jupyter-book build ML_book_site
 
@@ -33,5 +36,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ML_book_site/_build/html
-          force_orphan: true   # ensures full refresh every time
-
+          force_orphan: true
