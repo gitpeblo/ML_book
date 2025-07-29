@@ -7,24 +7,8 @@ on:
 
 jobs:
   build-deploy:
+    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        include:
-          - os: ubuntu-latest
-            label: linux-64
-            prefix: /usr/share/miniconda3/envs/my-env
-
-          - os: macos-latest
-            label: osx-64
-            prefix: /Users/runner/miniconda3/envs/my-env
-
-          - os: windows-latest
-            label: win-64
-            prefix: C:\Miniconda3\envs\my-env
-
-    name: ${{ matrix.label }}
-    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
 
@@ -41,8 +25,8 @@ jobs:
 
       - uses: actions/cache@v4
         with:
-          path: ${{ matrix.prefix }}
-          key: ${{ matrix.label }}-conda-${{ hashFiles('environment.yml') }}-${{ env.DATE }}-${{ env.CACHE_NUMBER }}
+          path: /usr/share/miniconda3/envs/my-env
+          key: linux-64-conda-${{ hashFiles('environment.yml') }}-${{ env.DATE }}-${{ env.CACHE_NUMBER }}
         id: cache
 
       - name: Create ML_book environment
