@@ -31,5 +31,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ML_book_site/_build/html
+          force_orphan: true   # ensures full refresh every time
 
