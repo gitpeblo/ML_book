@@ -12,6 +12,9 @@ dependencies:
   - pip
 
   - pip:
+      # Jupyter Book
+      - jupyter-book
+
       # Utils
       - ipywidgets==8.1.1
       - kaggle==1.5.12              # latest pip version, adjusted
