@@ -2,3 +2,22 @@ title: "ML Book"
 author: "Paolo Bonfini"
 copyright: "2025"
 
+html:
+  # Custom CSS to force vertical stacking of notebook cells and outputs.
+  # Prevents wide outputs from appearing side-by-side and breaking the layout. 
+  extra_head: |
+    <style>
+      .jp-Cell { 
+        max-width: 100% !important; 
+        flex-direction: column !important; 
+      }
+      .jp-OutputArea-output {
+        max-width: 100% !important;
+      }
+      .output_png img, .output_svg svg {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+    </style>
+
+
