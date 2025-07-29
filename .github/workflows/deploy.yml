@@ -18,10 +18,14 @@ jobs:
       - name: Cache conda environment
         uses: actions/cache@v3
         with:
-          path: ~/conda_envs
+          path: /home/runner/conda_envs
           key: ${{ runner.os }}-conda-env-${{ hashFiles('environment.yml') }}
           restore-keys: |
             ${{ runner.os }}-conda-env-
+
+      # Ensure the cached environment directory exists (prevents path errors)
+      - name: Prepare conda cache folder
+        run: mkdir -p /home/runner/conda_envs
 
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
@@ -32,7 +36,7 @@ jobs:
           use-mamba: true
           condarc-file: |
             envs_dirs:
-              - ~/conda_envs
+              - /home/runner/conda_envs
 
       - name: Add ML_book kernel
         shell: bash -l {0}
