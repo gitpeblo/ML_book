@@ -5,21 +5,25 @@ copyright: "2025"
 html:
   extra_head: |
     <style>
-      /* Force notebook content into one column */
+      /* Force everything into a single column */
       .bd-article-container {
-        display: block !important;
         max-width: 100% !important;
+        display: block !important;
       }
+      /* All cells in one column */
       div.cell, div.output, div.jp-Cell {
         float: none !important;
         clear: both !important;
         display: block !important;
         width: 100% !important;
       }
-      .margin, .margin-caption {
+      /* Remove margin notes & floats */
+      .margin, .margin-caption, .admonition {
         float: none !important;
         display: block !important;
         width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
       }
     </style>
 
