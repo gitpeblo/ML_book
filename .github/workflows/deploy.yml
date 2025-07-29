@@ -15,35 +15,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Mambaforge
+      - name: Setup Miniconda (with mamba)
         uses: conda-incubator/setup-miniconda@v3.2.0
         with:
-          miniforge-variant: Mambaforge
+          miniforge-variant: Miniconda3
           miniforge-version: latest
-          activate-environment: my-env
+          activate-environment: ML_book
           use-mamba: true
           auto-update-conda: true
 
-      - name: Set cache date
-        run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
+      - name: Cache conda environment
+        uses: actions/cache@v4
         with:
-          path: /usr/share/miniconda3/envs/my-env
-          key: linux-conda-${{ hashFiles('environment.yml') }}-${{ env.DATE }}-${{ env.CACHE_NUMBER }}
-        id: cache
+          path: /usr/share/miniconda3/envs/ML_book
+          key: linux-conda-${{ hashFiles('environment.yml') }}
 
       - name: Create ML_book environment
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          mamba env update -n my-env -f environment.yml
-          mamba install -n my-env ipykernel --yes
-          conda activate my-env
+          mamba env update -n ML_book -f environment.yml
+          mamba install -n ML_book ipykernel --yes
+          conda activate ML_book
           python -m ipykernel install --name ML_book --display-name "Python (ML_book)" --user
 
       - name: Build the book
         run: |
-          conda activate my-env
+          conda activate ML_book
           jupyter-book build ML_book_site
 
       - name: Deploy to GitHub Pages
