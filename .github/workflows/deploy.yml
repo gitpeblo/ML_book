@@ -26,20 +26,20 @@ jobs:
     name: ${{ matrix.label }}
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Mambaforge
-        uses: conda-incubator/setup-miniconda@v2
+        uses: conda-incubator/setup-miniconda@v3
         with:
-            miniforge-variant: Mambaforge
-            miniforge-version: latest
-            activate-environment: my-env
-            use-mamba: true
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          activate-environment: my-env
+          use-mamba: true
 
       - name: Set cache date
         run: echo "DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         with:
           path: ${{ matrix.prefix }}
           key: ${{ matrix.label }}-conda-${{ hashFiles('environment.yml') }}-${{ env.DATE }}-${{ env.CACHE_NUMBER }}
@@ -53,13 +53,11 @@ jobs:
           python -m ipykernel install --name ML_book --display-name "Python (ML_book)" --user
         if: steps.cache.outputs.cache-hit != 'true'
 
-      # Build the book
       - name: Build the book
         run: |
           source ~/mambaforge/bin/activate ML_book
           jupyter-book build ML_book_site
 
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
