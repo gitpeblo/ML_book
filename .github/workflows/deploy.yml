@@ -13,19 +13,15 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Cache full conda environment to avoid rebuilding from scratch each run.
-      # Restores cached environment if environment.yml hasn't changed, saving build time.
-      - name: Cache conda environment
+      # Cache conda packages to speed up environment creation
+      # Mamba will reuse cached packages and avoid redownloading
+      - name: Cache conda packages
         uses: actions/cache@v3
         with:
-          path: /home/runner/conda_envs
-          key: ${{ runner.os }}-conda-env-${{ hashFiles('environment.yml') }}
+          path: /home/runner/mambaforge/pkgs
+          key: ${{ runner.os }}-conda-pkgs-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-conda-env-
-
-      # Ensure the cached environment directory exists (prevents path errors)
-      - name: Prepare conda cache folder
-        run: mkdir -p /home/runner/conda_envs
+            ${{ runner.os }}-conda-pkgs-
 
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
