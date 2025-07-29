@@ -1,7 +1,4 @@
 title: "ML Book"
 author: "Paolo Bonfini"
-sphinx:
-  config:
-    # Static start year, dynamic current year
-    copyright: "2025–"
-    html_last_updated_fmt: "%Y"
+copyright: "2025"
+
