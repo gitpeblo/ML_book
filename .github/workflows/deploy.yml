@@ -13,22 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Debug step to confirm the exact Conda pkgs path for caching
-      - name: Debug conda path
-        run: |
-          echo "Searching for Conda pkgs directory..."
-          find /home/runner -type d -name pkgs
-
-      # Cache conda packages to speed up environment creation
-      # Using a stable versioned key to avoid invalidating cache unnecessarily
-      - name: Cache conda packages
-        uses: actions/cache@v3
-        with:
-          path: /home/runner/mambaforge/pkgs   # Will confirm with debug step output
-          key: ${{ runner.os }}-conda-pkgs-v1
-          restore-keys: |
-            ${{ runner.os }}-conda-pkgs-
-
+      # Set up Miniconda first so that pkgs directory exists
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
         with:
@@ -36,6 +21,24 @@ jobs:
           environment-file: environment.yml
           auto-activate-base: false
           use-mamba: true
+
+      # Debug step to confirm exact Conda pkgs path for caching
+      - name: Debug conda path
+        shell: bash -l {0}
+        run: |
+          echo "Searching for Conda pkgs directory..."
+          conda info
+          find $CONDA_PREFIX/.. -type d -name pkgs
+
+      # Cache conda packages to speed up environment creation
+      # We will update path with correct pkgs directory from above debug
+      - name: Cache conda packages
+        uses: actions/cache@v3
+        with:
+          path: $CONDA_PREFIX/../pkgs
+          key: ${{ runner.os }}-conda-pkgs-v1
+          restore-keys: |
+            ${{ runner.os }}-conda-pkgs-
 
       - name: Add ML_book kernel
         shell: bash -l {0}
