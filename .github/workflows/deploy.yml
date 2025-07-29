@@ -2,8 +2,7 @@ name: deploy-book
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-deploy:
@@ -15,19 +14,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Miniconda (with mamba)
-        uses: conda-incubator/setup-miniconda@v3.2.0
+      - name: Setup Miniforge (includes mamba)
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          miniforge-variant: Miniconda3
+          miniforge-variant: Miniforge3
           miniforge-version: latest
           activate-environment: ML_book
           use-mamba: true
           auto-update-conda: true
 
-      - name: Cache conda environment
+      - name: Cache conda environment & packages
         uses: actions/cache@v4
         with:
-          path: /usr/share/miniconda3/envs/ML_book
+          path:
+            - /usr/share/miniconda3/envs/ML_book
+            - /usr/share/miniconda3/pkgs
           key: linux-conda-${{ hashFiles('environment.yml') }}
 
       - name: Create ML_book environment
@@ -36,7 +37,8 @@ jobs:
           mamba env update -n ML_book -f environment.yml
           mamba install -n ML_book ipykernel --yes
           conda activate ML_book
-          python -m ipykernel install --name ML_book --display-name "Python (ML_book)" --user
+          python -m ipykernel install \
+            --name ML_book --display-name "Python (ML_book)" --user
 
       - name: Build the book
         run: |
