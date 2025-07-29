@@ -23,7 +23,7 @@ jobs:
       - name: Add ML_book kernel
         shell: bash -l {0}
         run: |
-          python -m ipykernel install --name ML_book --display-name "Python (ML_book)"
+          python -m ipykernel install --name ML_book --display-name "Python (ML_book)" --user
 
       - name: Build the book
         shell: bash -l {0}
