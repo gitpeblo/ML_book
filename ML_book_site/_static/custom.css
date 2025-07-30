@@ -1,8 +1,8 @@
-.exercise-block {
-  background-color: #fff3cd;   /* same bg as alert-warning */
-  border: 1px solid #ffeeba;
-  border-radius: 8px;
-  padding: 10px;
-  color: #856404;
-  margin-top: 20px;
+/* Force single-column display for warning alerts */
+.bd-content .alert.alert-warning {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  float: none !important;
+  margin: 1em 0 !important;
+  display: block !important;
 }
