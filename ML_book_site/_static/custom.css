@@ -1,7 +1,0 @@
-/* Force single-column display for warning alerts */
-div.alert.alert-warning[role="alert"] {
-  border-radius: 8px !important;
-  padding: 10px !important;
-  background-color: #fff3cd !important;
-  border: 1px solid #ffeeba !important;
-}
