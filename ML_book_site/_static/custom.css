@@ -1,9 +1,8 @@
-/* Force alert boxes into the main text column */
-.bd-content .alert.alert-block.alert-warning {
-  grid-column: 1 / -1 !important; /* Span full width */
-  float: none !important;          /* Remove floating */
-  width: 100% !important;           /* Full width */
-  margin-left: 0 !important;        /* Reset margins */
-  margin-right: 0 !important;
-  display: block !important;        /* Keep block layout */
+.exercise-block {
+  background-color: #fff3cd;   /* same bg as alert-warning */
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  padding: 10px;
+  color: #856404;
+  margin-top: 20px;
 }
