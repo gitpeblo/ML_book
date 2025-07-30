@@ -3,29 +3,5 @@ author: "Paolo Bonfini"
 copyright: "2025"
 
 html:
-  extra_head: |
-    <style>
-      /* Force everything into a single column */
-      .bd-article-container {
-        max-width: 100% !important;
-        display: block !important;
-      }
-      /* All cells in one column */
-      div.cell, div.output, div.jp-Cell {
-        float: none !important;
-        clear: both !important;
-        display: block !important;
-        width: 100% !important;
-      }
-      /* Remove margin notes & floats */
-      .margin, .margin-caption, .admonition {
-        float: none !important;
-        display: block !important;
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-    </style>
-
-
-
+  extra_css:
+    - custom.css
