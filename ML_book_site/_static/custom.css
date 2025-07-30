@@ -1,16 +1,9 @@
 /* Force alert boxes into the main text column */
-.bd-content .bd-article-container .alert.alert-block.alert-warning {
-  grid-column: 1 / -1 !important;
-  float: none !important;
-  width: 100% !important;
-  margin-left: 0 !important;
+.bd-content .alert.alert-block.alert-warning {
+  grid-column: 1 / -1 !important; /* Span full width */
+  float: none !important;          /* Remove floating */
+  width: 100% !important;           /* Full width */
+  margin-left: 0 !important;        /* Reset margins */
   margin-right: 0 !important;
-  display: block !important;
-}
-
-.bd-sidebar-secondary {
-  display: none !important;  /* hides margin column completely */
-}
-.bd-content {
-  grid-template-columns: 1fr !important; /* only one column */
+  display: block !important;        /* Keep block layout */
 }
