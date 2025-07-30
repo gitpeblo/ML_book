@@ -2,7 +2,6 @@ name: ML_book
 channels:
   - conda-forge
   - defaults
-channel_priority: strict
 
 dependencies:
   - python=3.12
@@ -12,7 +11,6 @@ dependencies:
   - ipykernel=6.28.0
   - pyzmq=24.0.1   # downgraded to match notebook's constraints
   - pip
-
   - pip:
       # Jupyter Book
       - jupyter-book
