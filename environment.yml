@@ -1,6 +1,7 @@
 name: ML_book
 channels:
   - conda-forge
+  - defaults
 channel_priority: strict
 
 dependencies:
