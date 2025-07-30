@@ -18,7 +18,7 @@ jobs:
         with:
           path: |
             ~/conda_pkgs_dir
-            ~/miniconda3/envs
+            ~/miniconda3/envs/ML_book
           key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
           restore-keys: |
             ${{ runner.os }}-conda-
