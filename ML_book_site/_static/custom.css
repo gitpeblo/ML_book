@@ -8,3 +8,9 @@
   display: block !important;
 }
 
+.bd-sidebar-secondary {
+  display: none !important;  /* hides margin column completely */
+}
+.bd-content {
+  grid-template-columns: 1fr !important; /* only one column */
+}
