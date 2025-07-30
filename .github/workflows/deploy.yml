@@ -13,15 +13,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Cache conda/mamba packages
+      - name: Cache Miniconda
         uses: actions/cache@v4
         with:
-          path: |
-            ~/conda_pkgs_dir
-            ~/miniconda3/envs/ML_book
-          key: ${{ runner.os }}-conda-${{ hashFiles('environment.yml') }}
+          path: ~/miniconda3
+          key: ${{ runner.os }}-miniconda-${{ hashFiles('environment.yml') }}
           restore-keys: |
-            ${{ runner.os }}-conda-
+            ${{ runner.os }}-miniconda-
 
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v3
