@@ -1,8 +1,10 @@
 /* Force alert boxes into the main text column */
-.alert.alert-block.alert-warning {
+.bd-content .bd-article-container .alert.alert-block.alert-warning {
   grid-column: 1 / -1 !important;
   float: none !important;
   width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+  display: block !important;
 }
+

@@ -4,4 +4,4 @@ copyright: "2025"
 
 html:
   extra_css:
-    - custom.css
+    - _static/custom.css
