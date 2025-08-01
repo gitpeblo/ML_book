@@ -6,12 +6,12 @@ html:
   extra_css:
     - _static/custom.css
 
+repository:
+  url: https://github.com/gitpeblo/ML_book
+  path_to_book: chapters                  # Folder where notebooks are
+  branch: main                            # Branch hosting the notebooks
+
 launch_buttons:
   colab_url: "https://colab.research.google.com"
-  notebook_interface: "notebook"
-  thebe: false
-
-repository:
-  url: https://github.com/<USER>/<REPO>  # Replace with your repo
-  path_to_book: chapters                 # Path where notebooks are stored
-  branch: main                           # Change if using a different branch
+  thebe: true
+  binderhub_url: "https://mybinder.org"
