@@ -2,6 +2,6 @@ format: jb-book
 root: index
 
 chapters:
-  - file: 
+  - title: Preamble
     sections:
       - file: chapters/chapter1/C00_object_oriented_programming_answerkey
