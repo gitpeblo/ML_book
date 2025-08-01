@@ -8,10 +8,11 @@ html:
 
 repository:
   url: https://github.com/gitpeblo/ML_book
-  path_to_book: chapters                  # Folder where notebooks are
-  branch: main                            # Branch hosting the notebooks
+  path_to_book: ML_book_site/chapters
+  branch: main
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
   thebe: true
   binderhub_url: "https://mybinder.org"
+
