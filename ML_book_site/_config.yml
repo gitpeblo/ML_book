@@ -8,11 +8,12 @@ html:
 
 repository:
   url: https://github.com/gitpeblo/ML_book
-  path_to_book: ML_book_site/chapters
+  path_to_book: ML_book_site
   branch: main
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
   thebe: true
   binderhub_url: "https://mybinder.org"
+
 
