@@ -3,3 +3,4 @@ root: index
 
 chapters:
   - file: chapters/chapter1/C01_object_oriented_programming_answerkey
+    numbered: true
