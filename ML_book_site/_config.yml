@@ -5,6 +5,7 @@ copyright: "2025"
 html:
   extra_css:
     - _static/custom.css
+  use_titles_from_toc: true  # overrides titles inside notebook files
 
 repository:
   url: https://github.com/gitpeblo/ML_book
@@ -15,5 +16,3 @@ launch_buttons:
   colab_url: "https://colab.research.google.com"
   thebe: true
   binderhub_url: "https://mybinder.org"
-
-
