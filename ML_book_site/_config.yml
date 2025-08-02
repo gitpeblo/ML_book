@@ -1,6 +1,9 @@
-title: "ML Book"
+title: "ML for Data Science"
 author: "Paolo Bonfini"
 copyright: "2025"
+
+copy_files:
+  - chapters/**/images/*
 
 html:
   extra_css:
