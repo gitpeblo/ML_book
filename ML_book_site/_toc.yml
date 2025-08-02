@@ -3,6 +3,7 @@ root: index
 
 chapters:
   - file: chapters/chapter1/P00_intro
+    title: Preamble
     sections:
       - file: chapters/chapter1/P00_object_oriented_programming_answerkey
       - file: chapters/chapter1/another_section
