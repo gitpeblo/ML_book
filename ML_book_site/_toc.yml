@@ -1,5 +1,10 @@
 format: jb-book
 root: index
 
+# Enable automatic numbering for all chapters and sections
+options:
+  numbered: true
+  maxdepth: 2  # Optional: controls how deep numbering goes (1=chapters only, 2=chapters+sections)
+
 chapters:
   - file: chapters/chapter1/C10_object_oriented_programming
