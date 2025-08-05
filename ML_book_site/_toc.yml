@@ -2,4 +2,4 @@ format: jb-book
 root: index
 
 chapters:
-  - file: chapters/chapter1/C10_object_oriented_programming_answerkey
+  - file: chapters/chapter1/C10_object_oriented_programming
