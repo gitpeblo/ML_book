@@ -7,4 +7,5 @@ options:
   maxdepth: 2  # Optional: controls how deep numbering goes (1=chapters only, 2=chapters+sections)
 
 chapters:
-  - file: chapters/chapter1/C10_object_oriented_programming
+  - file: chapters/chapter1/C10_object_oriented_programming 
+  - file: chapters/chapter2/C20_optimization_basics

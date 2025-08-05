@@ -7,6 +7,8 @@ html:
     - _static/custom.css
   static_path:
     - chapters/chapter1/images
+    - chapters/chapter2/data
+    - chapters/chapter2/images
 
 repository:
   url: https://github.com/gitpeblo/ML_book
@@ -15,8 +17,8 @@ repository:
 
 launch_buttons:
   colab_url: "https://colab.research.google.com"
-  thebe: true
-  binderhub_url: "https://mybinder.org"
+  # thebe: true
+  # binderhub_url: "https://mybinder.org"
 
 parse:
   myst_enable_extensions:
