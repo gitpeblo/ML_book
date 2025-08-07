@@ -4,6 +4,7 @@ root: index
 # Enable automatic numbering for all chapters and sections
 options:
   numbered: true
+  titlesonly: True
   maxdepth: 2  # Optional: controls how deep numbering goes (1=chapters only, 2=chapters+sections)
 
 chapters:
