@@ -9,3 +9,4 @@ options:
 chapters:
   - file: chapters/chapter1/C10_object_oriented_programming 
   - file: chapters/chapter2/C20_optimization_basics
+  - file: chapters/chapter3/C30_using_sklearn
