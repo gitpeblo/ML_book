@@ -1,0 +1,1250 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Object-oriented Programming in Python &#8212; ML for Natural Sciences</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/C10_object_oriented_programming';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basics of Optimization" href="../chapter2/C20_optimization_basics.html" />
+    <link rel="prev" title="Machine Learning for Natural Sciences" href="../../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ML for Natural Sciences</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Machine Learning for Natural Sciences
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Object-oriented Programming in Python <a class="tocSkip"></a></a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/C20_optimization_basics.html">Basics of Optimization <a class="tocSkip"></a></a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/C30_using_sklearn.html">Using sklearn models <a class="tocSkip"></a></a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/C40_classification.html">Classification <a class="tocSkip"></a></a></li>
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gitpeblo/ML_book/blob/main/ML_book_site/chapters/chapter1/C10_object_oriented_programming.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/chapter1/C10_object_oriented_programming.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Object-oriented Programming in Python <a class="tocSkip"></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Object-oriented Programming in Python <a class="tocSkip"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">Classes and Objects</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-and-methods">Attributes and Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-vs-methods">Functions VS Methods</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-need-classes">Why we need classes?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-compact-your-code">To compact your code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-carry-around-lots-of-info-without-re-typing">To carry around lots of info without re-typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-easily-invoke-functions-that-change-with-the-object">To easily invoke functions that change with the object</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sklearn-a-k-a-scikit-learn">Sklearn (a.k.a. scikit-learn)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-in-sklearn">Classes in sklearn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sklearn-consistency">Sklearn consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sklearn-main-families">Sklearn main families</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-read-a-documentation-together">Let’s read a documentation together</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="object-oriented-programming-in-python">
+<h1>Object-oriented Programming in Python <a class="tocSkip"><a class="headerlink" href="#object-oriented-programming-in-python" title="Link to this heading">#</a></h1>
+<font size=1>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Paolo Bonfini, 2025. All rights reserved.
+</pre></div>
+</div>
+<p>This work is the intellectual property of <code class="docutils literal notranslate"><span class="pre">Paolo</span> <span class="pre">Bonfini</span></code>. All content produced in this notebook is original creation of the author unless specified otherwise. Unauthorized use, reproduction, or distribution of this material, in whole or in part, without explicit permission from the author, is strictly prohibited.
+</font></p>
+<hr style="height:0.5px; border:none; color:lightgray; background-color:lightgray;">
+<p>This notebook introduces to the concept of “object-oriented programming” in Python, and shows how this is applied in <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>, which is the main library that will be used during the course.</p>
+<p>The contents of this class will not be <em>strictly</em> subject to examination, but constitute a fundamental knowledge to understand the rest of the class.  Therefore, make sure that the concepts presented here are within your grasp.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="classes-and-objects">
+<h1>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Link to this heading">#</a></h1>
+<p>You can think of <strong>classes</strong> as “stamps”. <br>
+Similarly, you can think of <strong>objects</strong> are the things that the stamps can print on a paper.</p>
+<p><span class="math notranslate nohighlight">\(\rightarrow\)</span> We usually say that objects are <u>instances</u> of a class</p>
+<a class="reference internal image-reference" href="../../_images/classes_objects.png"><img alt="../../_images/classes_objects.png" src="../../_images/classes_objects.png" style="width: 600px;" />
+</a>
+<p>In other words, a class represents a “<strong>template</strong>” that can create an arbitrary number of duplicates (objects) which possess the same structure.</p>
+<p>Let’s have a look at a very basic class <em>definition</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    We define a class &quot;Car&quot;, that we will later use to &quot;print&quot; cars.</span>
+<span class="sd">    </span>
+<span class="sd">    NOTE: Class names usually start with upper-case letters, while their</span>
+<span class="sd">          objects use only lower-case letters.</span>
+<span class="sd">    &#39;&#39;&#39;</span>    
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        The `__init__` method is used to initialize the properties of the objects.</span>
+<span class="sd">        In this case, we use it to initialize the property &quot;color&quot;.</span>
+<span class="sd">        </span>
+<span class="sd">        As you can see, this function takes as additional input `self`, which</span>
+<span class="sd">        is a special &quot;parameter&quot; saying that we are working with an instance</span>
+<span class="sd">        of a class.</span>
+<span class="sd">        &#39;&#39;&#39;</span>    
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Here we are saying:</span>
+<span class="sd">            &quot;Take the input color, and make it an attribute of the object&quot;</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see how to <u>instantiate</u> (<em>create</em>) an object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_1</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Notice that the `__init__` method is called implicitly!</span>
+<span class="sd">We passed the color &quot;red&quot; to the &quot;Car&quot; class, and automatically `Car` forwards</span>
+<span class="sd">it to `__init__`.</span>
+<span class="sd">This always happen when we instatiate an object with some properties.</span>
+<span class="sd">&#39;&#39;&#39;</span><span class="p">;</span>
+
+<span class="c1"># We can access the attributes simply by calling them:</span>
+<span class="n">car_1</span><span class="o">.</span><span class="n">color</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;red&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Objects of a class are <em>similar</em> (after all they come from the same “printer”), but <strong>not identical</strong>!</p>
+<p>Each object has its own properties, e.g.:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_2</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 1 is:&#39;</span><span class="p">,</span> <span class="n">car_1</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 2 is:&#39;</span><span class="p">,</span> <span class="n">car_2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Car 1 is: red
+Car 2 is: green
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">car_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__.Car
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once created, each object can be modified independently from the other objects:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you ever played GTA, you know that sometimes you need to change the color</span>
+<span class="c1"># of your car because of ... erhm ... reasons.</span>
+
+<span class="n">car_1</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span>
+<span class="n">car_2</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;purple&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 1 is now:&#39;</span><span class="p">,</span> <span class="n">car_1</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 2 is now:&#39;</span><span class="p">,</span> <span class="n">car_2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Car 1 is now: yellow
+Car 2 is now: purple
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="attributes-and-methods">
+<h1>Attributes and Methods<a class="headerlink" href="#attributes-and-methods" title="Link to this heading">#</a></h1>
+<p>As we saw, classes contain <strong>attributes</strong>, which are the <u>[modifiable] properties</u> of the objects.</p>
+<p>But they can also contain <strong>methods</strong>, i.e., <u>functions that operate on the object itself</u>.</p>
+<section id="functions-vs-methods">
+<h2>Functions VS Methods<a class="headerlink" href="#functions-vs-methods" title="Link to this heading">#</a></h2>
+<p><em>To best explain methods, let’s compare it againsta a “classical” function.</em></p>
+<p>Let’s first pretend we don’t know how to use classes.  Then, to define a car and its color, we can use a <em>dictionary</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;red&#39;</span><span class="p">}</span>
+<span class="n">car_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;green&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To change a car’s color with a <strong>function</strong>, we could simply do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">change_car_color</span><span class="p">(</span><span class="n">car</span><span class="p">,</span> <span class="n">new_color</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    `car` is the generic input dictionary.</span>
+<span class="sd">    `new_color` is the color we want to change to.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">car</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_color</span>
+    <span class="k">return</span> <span class="n">car</span>
+    
+<span class="c1"># Let&#39;s apply the function:</span>
+<span class="n">car_1</span> <span class="o">=</span> <span class="n">change_car_color</span><span class="p">(</span><span class="n">car_1</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">car_2</span> <span class="o">=</span> <span class="n">change_car_color</span><span class="p">(</span><span class="n">car_2</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 1 is now:&#39;</span><span class="p">,</span> <span class="n">car_1</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 2 is now:&#39;</span><span class="p">,</span> <span class="n">car_2</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Car 1 is now: yellow
+Car 2 is now: purple
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now do the same using a class with a dedicated <strong>method</strong><br>
+(<em>which, afterall, is just a standard function but placed inside a class</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">():</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">change_color</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_color</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Notice that now we don&#39;t need `car` as an input</span>
+<span class="sd">        --&gt; the method knows that we will apply it to `self`!</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">new_color</span>
+        
+<span class="c1"># Let&#39;s instantiate the objects and apply the methods:</span>
+<span class="n">car_1</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">car_2</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">car_1</span><span class="o">.</span><span class="n">change_color</span><span class="p">(</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">car_2</span><span class="o">.</span><span class="n">change_color</span><span class="p">(</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="sd">&#39;&#39;&#39;See? We only need to pass the new color!&#39;&#39;&#39;</span><span class="p">;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 1 is now:&#39;</span><span class="p">,</span> <span class="n">car_1</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Car 2 is now:&#39;</span><span class="p">,</span> <span class="n">car_2</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Car 1 is now: yellow
+Car 2 is now: purple
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="why-we-need-classes">
+<h1>Why we need classes?<a class="headerlink" href="#why-we-need-classes" title="Link to this heading">#</a></h1>
+<p>They are <u>convenient</u> <span class="math notranslate nohighlight">\(-\)</span> the more you use them, the more you will understand.</p>
+<p>Here are a few examples.</p>
+<section id="to-compact-your-code">
+<h2>To compact your code<a class="headerlink" href="#to-compact-your-code" title="Link to this heading">#</a></h2>
+<p>As we saw with the car color, we can place all the code regarding “cars” into the <code class="docutils literal notranslate"><span class="pre">Car</span></code> class.</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\rightarrow\)</span> When we need to search our code for functions applying to cars, <u>we know where to look</u><br>
+  (<em>Trust me, this is extremely useful for big projects with lots of code</em>)</p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\rightarrow\)</span> Allows to create compact documentations as well<br>
+  (<em>see later, <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> docs</em>)</p>
+</div></blockquote>
+</section>
+<section id="to-carry-around-lots-of-info-without-re-typing">
+<h2>To carry around lots of info without re-typing<a class="headerlink" href="#to-carry-around-lots-of-info-without-re-typing" title="Link to this heading">#</a></h2>
+<p>Let’s say I want to initialize many objects with the same properties:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">():</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">manifacturer</span> <span class="o">=</span> <span class="s1">&#39;Hyundai&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year_production</span> <span class="o">=</span> <span class="mi">1995</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doors</span> <span class="o">=</span> <span class="mi">4</span>       
+        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="s1">&#39;1400cc&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">power</span> <span class="o">=</span> <span class="s1">&#39;100kW&#39;</span>
+
+<span class="c1"># Instantiating 10 cars with random colors:</span>
+<span class="n">cars</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">random_color</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">])</span>
+    <span class="n">cars</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="n">random_color</span><span class="p">)</span>
+    
+<span class="c1"># Now accessing the attributes of car #5:</span>
+<span class="n">attributes_and_values</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">cars</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="c1">#</span>
+<span class="k">for</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attributes_and_values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>color : teal
+manifacturer : Hyundai
+year_production : 1995
+doors : 4
+engine : 1400cc
+power : 100kW
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-easily-invoke-functions-that-change-with-the-object">
+<h2>To easily invoke functions that change with the object<a class="headerlink" href="#to-easily-invoke-functions-that-change-with-the-object" title="Link to this heading">#</a></h2>
+<p><em>SPOILER: This is the property most exploited by <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</em></p>
+<hr style="height:0.5px; border:none; color:lightgray; background-color:lightgray;">
+<p>Let’s say we want to create a model that changes with <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>, e.g.:
+$<span class="math notranslate nohighlight">\(y = \alpha x + \beta\)</span>$</p>
+<p>and assume we want to execute this in a loop of 10 iterations, where <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are taken at random.</p>
+<p>Basically we will have to evaluate 10 slightly-different models (<em>every couple (<span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span>) give rise to a different model</em>)</p>
+<p>We want to</p>
+<ol class="arabic simple">
+<li><p>Inside the loop:</p>
+<ul class="simple">
+<li><p>A) <em>evaluate each model performance</em></p></li>
+<li><p>B) <em>keep the best model we find</em></p></li>
+</ul>
+</li>
+<li><p>Outisde the loop:</p>
+<ul class="simple">
+<li><p><em>apply a final calculation using the best model we found</em></p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Data:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Model</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">assess_performance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Fake method for demonstration purposes.</span>
+<span class="sd">        </span>
+<span class="sd">        Returns a random number between 0 and 1.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        
+    <span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        This predicts y by calculating:</span>
+<span class="sd">            alpha * x + beta</span>
+<span class="sd">        </span>
+<span class="sd">        Notice that we do not need to pass `alpha` and `beta`, because we can </span>
+<span class="sd">        already access them via `self` --- And this is the trick!</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span>
+        <span class="k">return</span> <span class="n">y</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Some data:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Sampling 10 random parameter couples (alpha, beta) and checking for best model:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+    <span class="n">beta</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;1.A - Evaluate each model performance&#39;&#39;&#39;</span>
+    <span class="n">performance</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">assess_performance</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;1.B - Keep the best model we find&#39;&#39;&#39;</span>
+    <span class="c1"># (yes, not the best criterion, it&#39;s just an example ...)</span>
+    <span class="k">if</span> <span class="n">performance</span> <span class="o">&gt;</span> <span class="mf">0.8</span><span class="p">:</span>
+        <span class="n">best_model</span> <span class="o">=</span> <span class="n">model</span>
+
+<span class="sd">&#39;&#39;&#39;2 - Apply a final calculation using the best model we found.&#39;&#39;&#39;</span>
+<span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># Notice that `best_model` is itself an instance of class `Model`, therefore</span>
+<span class="c1"># it has a `predict()` method</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([16, 14, 18, 14, 16, 20, 12, 18, 22, 12, 18, 22, 12])
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>In this case, we didn’t have to keep track of the best <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code><br>
+<span class="math notranslate nohighlight">\(\rightarrow\)</span>We just had to store <code class="docutils literal notranslate"><span class="pre">best_model</span></code>, and all properties and methods are carried along!</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the selected model&#39;s parameters:</span>
+<span class="nb">vars</span><span class="p">(</span><span class="n">best_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;alpha&#39;: np.int64(2), &#39;beta&#39;: np.int64(6)}
+</pre></div>
+</div>
+</div>
+</div>
+<div style="border-left: 5px solid #FFA500; background-color: rgba(255, 165, 0, 0.15); padding: 10px; border-radius: 4px; color: inherit;">
+<p><font size=6><strong>Exercise [30 min]</strong></font></p>
+<p><strong>Objective:</strong> Write an object-oriented code to manage the customers of an online store.</p>
+<p>Every time a customer buys a product, the cost of that product increases for <em>that</em> customer.</p>
+<p><strong>Task:</strong>  You will be given the <em>default</em> <code class="docutils literal notranslate"><span class="pre">product_costs</span></code>, which are all equal to 1, at the begininning.
+You will have to do the following.</p>
+<ol class="arabic simple">
+<li><p>Write a class that:</p>
+<ul class="simple">
+<li><p>initializes a customer with the <em>default</em> <code class="docutils literal notranslate"><span class="pre">product_costs</span></code></p></li>
+<li><p>has a <code class="docutils literal notranslate"><span class="pre">buy()</span></code> methodEvery time a customer buys a product, the cost of that product increases for <em>that</em> customer.
+which takes as an input the name of a product, and the only thing it does is to call for <code class="docutils literal notranslate"><span class="pre">increase_price()</span></code></p></li>
+<li><p>has an <code class="docutils literal notranslate"><span class="pre">increase_price()</span></code> method which  takes as an input the name of a product, and it increases its price by +1
+<br><br></p></li>
+</ul>
+</li>
+<li><p>Instantiate a custumer object, and:</p>
+<ul class="simple">
+<li><p>make it “buy” 3 times the same product</p></li>
+<li><p>display the final price the customer sees</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p>When you invoke internal attributes inside a class, remember to use <code class="docutils literal notranslate"><span class="pre">self</span></code>, e.g.:
+<code class="docutils literal notranslate"><span class="pre">self.product_costs</span></code></p></li>
+<li><p>The same goes for methods, so when <code class="docutils literal notranslate"><span class="pre">buy()</span></code> calls for <code class="docutils literal notranslate"><span class="pre">increase_price()</span></code>, it should be something like:
+<code class="docutils literal notranslate"><span class="pre">self.increase_price()</span></code></p></li>
+</ul>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;Uncomment the lines, and replace &quot;...&quot; with the proper code&#39;&#39;&#39;</span><span class="p">;</span>
+
+<span class="c1"># product_costs = {&#39;tomatoes&#39;: 1, &#39;phone&#39;: 1, &#39;socks&#39;: 1}</span>
+
+<span class="c1"># class Customer():</span>
+<span class="c1">#     def ... # define __init__() method</span>
+    
+<span class="c1">#     def ... # define buy() method</span>
+    
+<span class="c1">#     def ... # define increase_price() method   </span>
+
+    
+<span class="c1"># customer = ... # instantiate customer</span>
+ 
+<span class="c1"># ... # customer buys 3 times the same product</span>
+
+<span class="c1"># print(&#39;Final cost of products:&#39;, ...)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="height:0.5px; border:none; color:lightgray; background-color:lightgray;">
+<p><em>Our solution</em></p>
+<div class="cell tag_hide-cell docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">product_costs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tomatoes&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;socks&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Customer</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product_costs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">product_costs</span> <span class="o">=</span> <span class="n">product_costs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">buy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product</span><span class="p">):</span>
+<span class="c1">#         if product not in self.product_costs.keys():</span>
+<span class="c1">#             return &quot;Product not available.&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">increase_price</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">increase_price</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product</span><span class="p">):</span>
+         <span class="bp">self</span><span class="o">.</span><span class="n">product_costs</span><span class="p">[</span><span class="n">product</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            
+<span class="n">customer</span> <span class="o">=</span> <span class="n">Customer</span><span class="p">(</span><span class="n">product_costs</span><span class="p">)</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="s1">&#39;tomatoes&#39;</span><span class="p">)</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="s1">&#39;tomatoes&#39;</span><span class="p">)</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">buy</span><span class="p">(</span><span class="s1">&#39;tomatoes&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Final cost of products:&#39;</span><span class="p">,</span> <span class="n">customer</span><span class="o">.</span><span class="n">product_costs</span><span class="p">)</span>
+<span class="n">product_costs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final cost of products: {&#39;tomatoes&#39;: 4, &#39;phone&#39;: 1, &#39;socks&#39;: 1}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tomatoes&#39;: 1, &#39;phone&#39;: 1, &#39;socks&#39;: 1}
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="sklearn-a-k-a-scikit-learn">
+<h1>Sklearn (a.k.a. scikit-learn)<a class="headerlink" href="#sklearn-a-k-a-scikit-learn" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://scikit-learn.org/stable/">Scikit-learn</a> is a python library for Machine Learning and related tasks:</p>
+<ul class="simple">
+<li><p>Calssification</p></li>
+<li><p>Regression</p></li>
+<li><p>Clustering</p></li>
+<li><p>Dimensionality Reduction</p></li>
+<li><p>Model selection</p></li>
+<li><p>Preprocessing</p></li>
+</ul>
+<section id="classes-in-sklearn">
+<h2>Classes in sklearn<a class="headerlink" href="#classes-in-sklearn" title="Link to this heading">#</a></h2>
+<p>Sklearn is heavily based on object-oriented programming …</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s generate some random data:</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e1dc0f69e3a5b6cf64608dd50c27568b680d406b11dac48fd621bb82f1e261bc.png" src="../../_images/e1dc0f69e3a5b6cf64608dd50c27568b680d406b11dac48fd621bb82f1e261bc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="sd">&#39;&#39;&#39;Importing a [sub-]package class (a linear model, in this case).&#39;&#39;&#39;</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="sd">&#39;&#39;&#39;Instantiating an object of `LinearRegression` class.&#39;&#39;&#39;</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="sd">&#39;&#39;&#39;Invoking the `fit` method of `LinearRegression`, which will find the best</span>
+<span class="sd">fit line through X and y.&#39;&#39;&#39;</span>
+
+<span class="sd">&#39;&#39;&#39;Predicting the y values using the fitted model, using the `predict` method</span>
+<span class="sd">of `LinearRegression` class.&#39;&#39;&#39;</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s plot data and results:</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;original data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;predicted values</span><span class="se">\n</span><span class="s1">for the corresponding x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;tomato&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b125943a2da5f6522f3250462e11256b92625ccb5802be9bd7e55b0e2ce7d4fc.png" src="../../_images/b125943a2da5f6522f3250462e11256b92625ccb5802be9bd7e55b0e2ce7d4fc.png" />
+</div>
+</div>
+<p><u>NOTE:</u> <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> methods <em>always</em> expect as an input <code class="docutils literal notranslate"><span class="pre">X</span></code> a 2D-array (<em><code class="docutils literal notranslate"><span class="pre">y</span></code> may be 1D</em>).</p>
+<p>So, when they are not, we need to ‘pretend’ they are. That is why we defined <code class="docutils literal notranslate"><span class="pre">X</span></code> as:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>and not the more “obvious”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_obvious</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">X_obvious</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we inspect their shapes, we see:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of NOT-sklearn-compliant X:&#39;</span><span class="p">,</span> <span class="n">X_obvious</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">This array has </span><span class="si">%s</span><span class="s1"> elements&#39;</span> <span class="o">%</span> <span class="n">X_obvious</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of sklearn-compliant X:&#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">This array also has </span><span class="si">%s</span><span class="s1"> elements, but each of them has explicit dimension </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of NOT-sklearn-compliant X: (5,)
+	This array has 5 elements
+Shape of sklearn-compliant X: (5, 1)
+	This array also has 5 elements, but each of them has explicit dimension 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is just a matter of format <span class="math notranslate nohighlight">\(-\)</span> in this case they are the <strong>exact same</strong> data.</p>
+<p>This only matter when X has more than 1 dimension, e.g. is 2D:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">azim</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.2</span><span class="p">,</span> <span class="mf">5.9</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X$_0$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;X$_1$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c0eb1d1579d8b04036af25d24d6c5470b2b0a32f3ee9e2904a392f5d6d4ea8e6.png" src="../../_images/c0eb1d1579d8b04036af25d24d6c5470b2b0a32f3ee9e2904a392f5d6d4ea8e6.png" />
+</div>
+</div>
+</section>
+<section id="sklearn-consistency">
+<h2>Sklearn consistency<a class="headerlink" href="#sklearn-consistency" title="Link to this heading">#</a></h2>
+<p>Sklearn is <u>extremely consistent</u> with its syntax and class definitions.</p>
+<p>For example, all its regression models share the same syntax:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="c1">#</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># OR: </span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ridge</span>
+<span class="c1">#</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># OR:</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lasso</span>
+<span class="c1">#</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Lasso</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># etc.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.56, 0.56, 0.56, 0.56, 0.56])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You start seeing the convenience of using classes.</p>
+<p>As a user, I only have to remember e.g. to use the <code class="docutils literal notranslate"><span class="pre">fit</span></code> method.
+It has the same name for every algorithm!</p>
+</section>
+<section id="sklearn-main-families">
+<h2>Sklearn main families<a class="headerlink" href="#sklearn-main-families" title="Link to this heading">#</a></h2>
+<p>There are 3 main class families in Sklearn <span class="math notranslate nohighlight">\(\rightarrow\)</span> they share the <strong>same method names</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Classifiers and Regressors</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_predict()</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>   e.g. <code class="docutils literal notranslate"><span class="pre">LinearRegression</span></code></p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Transformers</strong> (<em>for data pre-processing, normalization, etc.</em>)</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inverse_transform()</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>   e.g. <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code></p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Clusterers</strong><br>
+These are more weird: depending on the algorithm they can have/<em>not</em> have:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fit()</span></code> <span class="math notranslate nohighlight">\(\leftarrow\)</span> always</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_predict()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fit_transform()</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>   e.g. <code class="docutils literal notranslate"><span class="pre">KMeans</span></code></p>
+</section>
+<section id="let-s-read-a-documentation-together">
+<h2>Let’s read a documentation together<a class="headerlink" href="#let-s-read-a-documentation-together" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans"><code class="docutils literal notranslate"><span class="pre">sklearn.cluster.KMeans</span></code></a></p>
+<p>Notice:</p>
+<ul class="simple">
+<li><p><strong>usage</strong></p></li>
+<li><p><strong>source</strong></p></li>
+<li><p><strong>parameters</strong> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <em>they are attributes we set</em></p></li>
+<li><p><strong>attributes</strong> <span class="math notranslate nohighlight">\(\leftarrow\)</span> <em>they are attributes the algorithm sets</em></p></li>
+<li><p><strong>methods</strong></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "ml_book"
+        },
+        kernelOptions: {
+            name: "ml_book",
+            path: "./chapters/chapter1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ml_book'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Machine Learning for Natural Sciences</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter2/C20_optimization_basics.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Basics of Optimization <a class="tocSkip"></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Object-oriented Programming in Python <a class="tocSkip"></a></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-and-objects">Classes and Objects</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes-and-methods">Attributes and Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-vs-methods">Functions VS Methods</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#why-we-need-classes">Why we need classes?</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-compact-your-code">To compact your code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-carry-around-lots-of-info-without-re-typing">To carry around lots of info without re-typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-easily-invoke-functions-that-change-with-the-object">To easily invoke functions that change with the object</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sklearn-a-k-a-scikit-learn">Sklearn (a.k.a. scikit-learn)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-in-sklearn">Classes in sklearn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sklearn-consistency">Sklearn consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sklearn-main-families">Sklearn main families</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-read-a-documentation-together">Let’s read a documentation together</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Paolo Bonfini
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
