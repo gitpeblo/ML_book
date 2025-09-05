@@ -11,3 +11,4 @@ chapters:
   - file: chapters/chapter2/C20_optimization_basics
   - file: chapters/chapter3/C30_using_sklearn  
   - file: chapters/chapter4/C40_classification
+  - file: chapters/chapter5/C50_svm_and_cv
